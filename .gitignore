@@ -59,6 +59,9 @@ typings/
 
 # next.js build output
 .next
+<<<<<<< HEAD
 generated
 build
 prisma.yml
+=======
+>>>>>>> 28398f4c0145390617c795b0ab2d7896caa7e48a
