@@ -5,7 +5,7 @@ import sgMail from '@sendgrid/mail'
 
 export default {
   Mutation: {
-    requestSecret: async (_, args) => {
+    requestSecret: async (_, args , request) => {
       const { email } = args;
       const loginSecret = generateSecret();
       try {
