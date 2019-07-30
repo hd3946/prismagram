@@ -7,13 +7,16 @@ export default {
   Mutation: {
     requestSecret: async (_, args , request) => {
       const { email } = args;
+      //const [loginSecret] = generateSecret();
+      //const loginSecret = [ String(generateSecret()) ]
       const loginSecret = generateSecret();
+
       try {
         await sgMail.send(sendSecretMail(email, loginSecret));
         await prisma.updateUser({ data: { loginSecret }, where: { email } });
         return true;
-      } catch (error) {
-        console.log(error);
+      } catch (e) {
+        console.log(e);
         return false;
       }
     }
