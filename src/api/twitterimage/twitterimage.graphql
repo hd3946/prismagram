@@ -18,6 +18,33 @@ type Tweet {
   user: TwitterUser
   retweets(limit: Int): [Retweet]
 }
+type Status {
+  id: ID
+  created_at:Int
+  text: String
+  entities: Entities
+}
+type Entities{
+  hashtags:String
+  media:[Media]
+}
+type Media {
+  id:ID
+  media_url:String
+  type:String
+}
+type Tweet2 {
+  id: ID
+  description:String
+  name: String
+  created_at: String
+  text: String
+  retweet_count: Int
+  user: TwitterUser
+  retweets(limit: Int): [Retweet]
+  status:Status
+  statuses_count:Int
+}
 type Retweet{
   id: ID
   created_at: String
@@ -32,4 +59,5 @@ type Query {
   user:TwitterUser
   tweet(id:String): Tweet
   search(q:String,count: Int):[Tweet]
+  searchU(q:String):[Tweet2]
 }
